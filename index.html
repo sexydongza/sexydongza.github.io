@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Professional Portfolio</title>
+  <meta name="description" content="A responsive professional portfolio with a games section.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <p class="eyebrow">Portfolio</p>
+      <a class="brand-name" href="#home">Your Name</a>
+    </div>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      Menu
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+      <a href="#games">Games</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="hero">
+      <div class="hero-copy">
+        <p class="section-label">Professional Website</p>
+        <h1>Building a clean, responsive portfolio with a playful games space.</h1>
+        <p class="lead">
+          This starter layout is optimized for GitHub Pages, mobile devices, and future
+          expansion into a keyboard and touch-driven snake game.
+        </p>
+      </div>
+    </section>
+
+    <section id="about" class="panel">
+      <h2>About</h2>
+      <p>
+        Introduce your background, strengths, and goals here.
+      </p>
+    </section>
+
+    <section id="projects" class="panel">
+      <h2>Projects</h2>
+      <p>
+        Add selected projects, achievements, or case studies here.
+      </p>
+    </section>
+
+    <section id="experience" class="panel">
+      <h2>Experience</h2>
+      <div class="info-grid">
+        <article class="info-card">
+          <h3>Frontend Developer</h3>
+          <p>Built responsive static interfaces, navigation systems, and interactive UI prototypes.</p>
+        </article>
+        <article class="info-card">
+          <h3>Impact</h3>
+          <p>Improved mobile usability, reduced layout breakage, and shipped a playable game shell.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="research" class="panel">
+      <h2>Research</h2>
+      <div class="info-grid">
+        <article class="info-card">
+          <h3>Interests</h3>
+          <p>Responsive UI systems, browser interactions, and lightweight game mechanics.</p>
+        </article>
+        <article class="info-card">
+          <h3>Notes</h3>
+          <p>Temporary placeholder content for portfolio structure and future project summaries.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="panel">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <a class="contact-chip" href="mailto:hello@example.com">hello@example.com</a>
+        <a class="contact-chip" href="https://github.com/sexydongza" target="_blank" rel="noreferrer">github.com/sexydongza</a>
+        <a class="contact-chip" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">linkedin.com/in/portfolio-demo</a>
+      </div>
+    </section>
+
+    <section id="games" class="panel games-panel">
+      <div class="panel-header">
+        <h2>Games</h2>
+        <p>Playable snake prototype with keyboard, swipe, and button controls.</p>
+      </div>
+      <div class="game-shell">
+        <div class="game-stage">
+          <canvas
+            id="snake-board"
+            class="game-board"
+            width="400"
+            height="400"
+            tabindex="0"
+            role="img"
+            aria-label="Snake game board"
+          ></canvas>
+          <p id="game-status" class="game-status" aria-live="polite">Press Start to begin.</p>
+        </div>
+
+        <div class="game-sidebar">
+          <dl class="scoreboard">
+            <div>
+              <dt>Score</dt>
+              <dd id="score-value">0</dd>
+            </div>
+            <div>
+              <dt>State</dt>
+              <dd id="mode-value">Ready</dd>
+            </div>
+          </dl>
+
+          <div class="game-actions">
+            <button id="game-start" class="primary-button" type="button">Start</button>
+            <button id="game-pause" class="secondary-button" type="button">Pause</button>
+            <button id="game-restart" class="secondary-button" type="button">Restart</button>
+          </div>
+
+          <div class="control-pad" aria-label="Mobile directional controls">
+            <button class="dir-button dir-up" type="button" data-dir="up">Up</button>
+            <div class="dir-row">
+              <button class="dir-button" type="button" data-dir="left">Left</button>
+              <button class="dir-button" type="button" data-dir="right">Right</button>
+            </div>
+            <button class="dir-button dir-down" type="button" data-dir="down">Down</button>
+          </div>
+
+          <p class="game-help">
+            Use Arrow keys or WASD. Swipe across the board or tap the direction buttons on mobile.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>GitHub Pages ready static site structure.</p>
+  </footer>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>
