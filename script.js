@@ -338,6 +338,24 @@ function initSnakeGame() {
   }
 
   document.addEventListener('keydown', (event) => {
+    if (event.key === ' ' || event.key === 'Enter') {
+      event.preventDefault();
+      if (event.key === ' ') {
+        if (state.running) {
+          pauseGame();
+        } else {
+          startGame();
+        }
+      } else if (state.gameOver) {
+        restartGame();
+      } else if (state.running) {
+        pauseGame();
+      } else {
+        startGame();
+      }
+      return;
+    }
+
     const nextDirection = directionFromKey(event.key);
     if (!nextDirection) {
       return;

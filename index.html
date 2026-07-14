@@ -1,10 +1,10 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Professional Portfolio</title>
-  <meta name="description" content="A responsive professional portfolio with a games section.">
+  <title>Eunyoung Lee | Professional Portfolio</title>
+  <meta name="description" content="Eunyoung Lee's responsive professional portfolio with an Android and web focus.">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
   <header class="site-header">
     <div class="brand">
       <p class="eyebrow">Portfolio</p>
-      <a class="brand-name" href="#home">Your Name</a>
+      <a class="brand-name" href="#home">Eunyoung Lee</a>
     </div>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
@@ -35,62 +35,80 @@
     <section id="home" class="hero">
       <div class="hero-copy">
         <p class="section-label">Professional Website</p>
-        <h1>Building a clean, responsive portfolio with a playful games space.</h1>
+        <h1>Eunyoung Lee builds responsive experiences for Android and the web.</h1>
         <p class="lead">
-          This starter layout is optimized for GitHub Pages, mobile devices, and future
-          expansion into a keyboard and touch-driven snake game.
+          I am an Android app developer with Kotlin experience, and I care about clear UI,
+          reliable interactions, and polished delivery across mobile and desktop.
         </p>
       </div>
     </section>
 
     <section id="about" class="panel">
-      <h2>About</h2>
-      <p>
-        Introduce your background, strengths, and goals here.
-      </p>
+      <div class="panel-header">
+        <h2>About</h2>
+        <p>Android app developer with Kotlin experience, focused on practical features and dependable user flows.</p>
+      </div>
     </section>
 
     <section id="projects" class="panel">
-      <h2>Projects</h2>
-      <p>
-        Add selected projects, achievements, or case studies here.
-      </p>
+      <div class="panel-header">
+        <h2>Projects</h2>
+        <p>Selected work that balances Android development, Kotlin logic, and responsive web delivery.</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-card">
+          <h3>Android App Development</h3>
+          <p>Built mobile features and UI flows with Kotlin, keeping interactions simple and stable.</p>
+        </article>
+        <article class="info-card">
+          <h3>Responsive Web Portfolio</h3>
+          <p>Created a static portfolio that works well on GitHub Pages, desktop, and mobile screens.</p>
+        </article>
+      </div>
     </section>
 
     <section id="experience" class="panel">
-      <h2>Experience</h2>
+      <div class="panel-header">
+        <h2>Experience</h2>
+        <p>Hands-on work across mobile app development and responsive static interfaces.</p>
+      </div>
       <div class="info-grid">
         <article class="info-card">
-          <h3>Frontend Developer</h3>
-          <p>Built responsive static interfaces, navigation systems, and interactive UI prototypes.</p>
+          <h3>Android App Development</h3>
+          <p>Focused on Kotlin-based app work, app structure, and clear user-facing interactions.</p>
         </article>
         <article class="info-card">
-          <h3>Impact</h3>
-          <p>Improved mobile usability, reduced layout breakage, and shipped a playable game shell.</p>
+          <h3>Web UI Delivery</h3>
+          <p>Shipped responsive static pages that stay readable across desktop and mobile viewports.</p>
         </article>
       </div>
     </section>
 
     <section id="research" class="panel">
-      <h2>Research</h2>
+      <div class="panel-header">
+        <h2>Research</h2>
+        <p>Topics I study to improve clarity, maintainability, and small-screen usability.</p>
+      </div>
       <div class="info-grid">
         <article class="info-card">
-          <h3>Interests</h3>
-          <p>Responsive UI systems, browser interactions, and lightweight game mechanics.</p>
+          <h3>Mobile UX</h3>
+          <p>Studying how small layout and interaction choices affect mobile clarity and ease of use.</p>
         </article>
         <article class="info-card">
-          <h3>Notes</h3>
-          <p>Temporary placeholder content for portfolio structure and future project summaries.</p>
+          <h3>Kotlin Practice</h3>
+          <p>Exploring Kotlin patterns that support cleaner logic, maintainable code, and app stability.</p>
         </article>
       </div>
     </section>
 
     <section id="contact" class="panel">
-      <h2>Contact</h2>
+      <div class="panel-header">
+        <h2>Contact</h2>
+        <p>Use the channels below for professional outreach. Some details still need confirmation.</p>
+      </div>
       <div class="contact-grid">
-        <a class="contact-chip" href="mailto:hello@example.com">hello@example.com</a>
         <a class="contact-chip" href="https://github.com/sexydongza" target="_blank" rel="noreferrer">github.com/sexydongza</a>
-        <a class="contact-chip" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">linkedin.com/in/portfolio-demo</a>
+        <a class="contact-chip" href="mailto:dldhdmsdud2@gmail.com">dldhdmsdud2@gmail.com</a>
       </div>
     </section>
 
@@ -125,6 +143,17 @@
             </div>
           </dl>
 
+          <section class="game-guide" aria-labelledby="game-guide-title">
+            <h3 id="game-guide-title">How to Play</h3>
+            <ul>
+              <li>Press Start or Enter to begin.</li>
+              <li>Use Arrow keys or WASD to move the snake.</li>
+              <li>Press Space to pause or resume.</li>
+              <li>Use swipe gestures or the direction buttons on mobile.</li>
+              <li>Press Restart after a crash to play again.</li>
+            </ul>
+          </section>
+
           <div class="game-actions">
             <button id="game-start" class="primary-button" type="button">Start</button>
             <button id="game-pause" class="secondary-button" type="button">Pause</button>
@@ -132,16 +161,25 @@
           </div>
 
           <div class="control-pad" aria-label="Mobile directional controls">
-            <button class="dir-button dir-up" type="button" data-dir="up">Up</button>
+            <button class="dir-button dir-up" type="button" data-dir="up" aria-label="Up">
+              <img class="dir-icon" src="./assets/dir-up.svg" alt="" aria-hidden="true">
+            </button>
             <div class="dir-row">
-              <button class="dir-button" type="button" data-dir="left">Left</button>
-              <button class="dir-button" type="button" data-dir="right">Right</button>
+              <button class="dir-button" type="button" data-dir="left" aria-label="Left">
+                <img class="dir-icon" src="./assets/dir-left.svg" alt="" aria-hidden="true">
+              </button>
+              <button class="dir-button" type="button" data-dir="right" aria-label="Right">
+                <img class="dir-icon" src="./assets/dir-right.svg" alt="" aria-hidden="true">
+              </button>
             </div>
-            <button class="dir-button dir-down" type="button" data-dir="down">Down</button>
+            <button class="dir-button dir-down" type="button" data-dir="down" aria-label="Down">
+              <img class="dir-icon" src="./assets/dir-down.svg" alt="" aria-hidden="true">
+            </button>
           </div>
 
           <p class="game-help">
-            Use Arrow keys or WASD. Swipe across the board or tap the direction buttons on mobile.
+            Enter starts or restarts. Space pauses or resumes. Swipe across the board or tap the
+            direction buttons on mobile.
           </p>
         </div>
       </div>
@@ -149,9 +187,10 @@
   </main>
 
   <footer class="site-footer">
-    <p>GitHub Pages ready static site structure.</p>
+    <p>GitHub Pages ready static site structure for Eunyoung Lee.</p>
   </footer>
 
   <script src="./script.js" defer></script>
 </body>
 </html>
+

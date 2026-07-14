@@ -514,3 +514,66 @@ Current environment note:
 - `claude` is detected in the current environment and `claude doctor` passes.
 - `claude auth status` is logged in through `claude.ai`.
 - Sonnet 5 is available and verified via `--model sonnet` and `--model claude-sonnet-5`.
+
+## Change Request Loop Plan
+
+Use this plan after the first deployment is already live and the user provides review feedback.
+Treat each feedback item as a separate change item so the site stays stable while improvements are applied.
+
+### Change request principles
+
+- Split the review feedback into independent change items.
+- Implement only one change item per loop unless the user explicitly asks for a bundle.
+- Preserve the deployed baseline unless the item explicitly requires replacement.
+- Prefer content-only edits before layout or logic edits when the request is primarily about copy.
+- Rerun the same verifier after every retry before moving to the next item.
+
+### Change request states
+
+- `CHANGE_INTAKE`
+  - A review request has been received and itemized.
+- `CHANGE_PLANNED`
+  - The next item has been selected and scoped.
+- `READY`
+  - The workspace is ready for the selected item.
+- `ACTING`
+  - Minimal code or document edits for the selected item are being applied.
+- `VERIFYING`
+  - The selected verifier is running.
+- `RETRYING`
+  - The same verifier is being rerun after a focused fix.
+- `PASSED`
+  - The selected item passed verification.
+- `BLOCKED`
+  - Environment, permissions, or deployment constraints prevent progress.
+- `HITL_REQUIRED`
+  - Human confirmation is required before continuing.
+- `DEPLOY_APPROVAL_REQUIRED`
+  - The change is ready, but deployment approval or permission is required.
+- `DEPLOYED`
+  - The change has been deployed successfully.
+
+### Change request routing
+
+| Step | Input | Act | Observe | Output | Test criteria | Next state |
+|---|---|---|---|---|---|---|
+| 1 | User review feedback | Split feedback into atomic change items | Each item has one scope and one category | Change request backlog | No item mixes unrelated work | `CHANGE_INTAKE` |
+| 2 | Selected change item | Edit only the minimal files | Baseline features remain intact | Focused patch | Only one root cause or one content item changes | `ACTING` |
+| 3 | Changed files | Run the item-specific verifier | Errors, browser state, console output, text diff | Pass/fail result | The same verifier is reproducible | `VERIFYING` |
+| 4 | Failed verifier | Apply one targeted fix | Same verifier output changes or disappears | Retry evidence | Same fingerprint does not keep repeating | `RETRYING` |
+| 5 | Passed verifier | Record result in `MEMORY.md` | Updated loop log | Verified item status | Log shows baseline, verifier, and outcome | `PASSED` |
+| 6 | Optional deployment | Push or publish only when approved | Live site response | Deployed change | GitHub Pages still serves the root site correctly | `DEPLOYED` |
+
+### Change request guardrails
+
+- Do not rewrite the whole site for a single review comment.
+- Do not merge unrelated content, layout, and logic fixes into one retry.
+- Do not remove working game features while editing copy or layout.
+- Do not change the target repository or Pages URL unless the user explicitly requests it.
+- Do not store or print tokens in notes, code, or logs.
+
+### Current review-response note
+
+- The live site review created a follow-up change request after the first deployment.
+- The next step should start from the smallest meaningful item in `CHANGE_REQUEST.md`.
+- If identity or background facts are unclear, pause at `HITL_REQUIRED` rather than guessing.
